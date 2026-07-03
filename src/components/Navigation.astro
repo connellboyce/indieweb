@@ -1,0 +1,16 @@
+---
+import NavItem from './NavItem.astro';
+
+const navValues = [
+    { displayText: 'home', href: '/' },
+    { displayText: 'About', href: '/about' },
+    { displayText: 'Contact', href: '/contact' }
+];
+---
+<section class="mt-6">
+    {
+        navValues.map((value, key) => (
+            <NavItem key={key} displayText={value.displayText} href={value.href} />
+        ))
+    }
+</section>

@@ -1,0 +1,16 @@
+---
+import NavItem from './NavItem.astro';
+
+const menuItems = [
+    { displayText: 'home', href: '/' },
+    { displayText: 'About', href: '/about' },
+    { displayText: 'Contact', href: '/contact' }
+];
+---
+<section class="grid grid-cols-1 gap-4 mt-6">
+    {
+        menuItems.map((value, key) => (
+            <NavItem key={key} displayText={value.displayText} href={value.href} />
+        ))
+    }
+</section>
