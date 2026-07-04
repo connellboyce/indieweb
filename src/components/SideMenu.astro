@@ -1,16 +1,28 @@
 ---
 import NavItem from './NavItem.astro';
+import Chatango from './Chatango.astro';
 
-const menuItems = [
-    { displayText: 'home', href: '/' },
-    { displayText: 'About', href: '/about' },
-    { displayText: 'Contact', href: '/contact' }
-];
+const SIDEBAR_WIDTH = 250;
 ---
-<section class="grid grid-cols-1 gap-4 mt-6">
-    {
-        menuItems.map((value, key) => (
-            <NavItem key={key} displayText={value.displayText} href={value.href} />
-        ))
-    }
+<section class="grid grid-cols-1 gap-4" style={`width:${SIDEBAR_WIDTH}px`}>
+    <NavItem displayText="add my button" />
+    <Chatango
+ 			width={SIDEBAR_WIDTH}
+  			height={350}
+  			windowBackgroundColor="660000"
+			windowBackgroundOpacity={100}
+			titleColor="FFFFFF"
+			subtitleColor="FFFFFF"
+			dateColor="660000"
+  			mainBorderVisible={false}
+  			messageSound={false}
+  			allowPrivateMessages={false}
+  			ticker={false}
+			cornerRadius={0.35}
+			showCloseButton={false}
+			showUserIcons={false}
+		/>
+    <NavItem displayText="neighbors" />
+    <NavItem displayText="webrings" />
+
 </section>

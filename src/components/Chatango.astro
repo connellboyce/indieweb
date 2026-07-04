@@ -1,0 +1,119 @@
+---
+interface Props {
+  width?: number | string;
+  height?: number | string;
+
+  windowBackgroundColor?: string;
+  windowBackgroundOpacity?: number;
+  titleColor?: string;
+  subtitleColor?: string;
+  messagesBackgroundColor?: string;
+  messagesBackgroundOpacity?: number;
+  messagesTextColor?: string;
+  inputBackgroundColor?: string;
+  inputBackgroundOpacity?: number;
+  inputTextColor?: string;
+  dateColor?: string;
+  borderColor?: string;
+  buttonColor?: string;
+  buttonTextColor?: string;
+  buttonOpacity?: number;
+  mainBorderColor?: string;
+  mainBorderVisible?: boolean;
+  rounded?: boolean;
+  messageSound?: boolean;
+  showGroupName?: boolean;
+  showOwnersMessage?: boolean;
+  allowPrivateMessages?: boolean;
+  ticker?: boolean;
+  showUserIcons?: boolean;
+  cornerRadius?: number;
+  showCloseButton?: boolean;
+  fontSize?: number;
+}
+
+const {
+  width = 250,
+  height = 350,
+
+  windowBackgroundColor = "660000",
+  windowBackgroundOpacity = 100,
+  titleColor = "FFFFFF",
+  subtitleColor = "FFFFFF",
+  messagesBackgroundColor = "FFFFFF",
+  messagesBackgroundOpacity = 100,
+  messagesTextColor = "000000",
+  inputBackgroundColor = "FFFFFF",
+  inputBackgroundOpacity = 100,
+  inputTextColor = "000000",
+  dateColor = "CC0000",
+  borderColor = "CC0000",
+  buttonColor = "CC0000",
+  buttonTextColor = "FFFFFF",
+  buttonOpacity = 100,
+  fontSize = 10,
+  mainBorderColor = "CC0000",
+  mainBorderVisible = true,
+  rounded = true,
+  messageSound = true,
+  showGroupName = true,
+  showOwnersMessage = true,
+  allowPrivateMessages = false,
+  ticker = false,
+  showUserIcons = true,
+  cornerRadius = 0.35,
+  showCloseButton = true,
+}: Props = Astro.props;
+
+const styles = {
+  a: windowBackgroundColor,
+  b: windowBackgroundOpacity,
+  c: titleColor,
+  d: subtitleColor,
+  e: messagesBackgroundColor,
+  f: messagesBackgroundOpacity,
+  g: messagesTextColor,
+  h: inputBackgroundColor,
+  i: inputBackgroundOpacity,
+  j: inputTextColor,
+  k: dateColor,
+  l: borderColor,
+  m: buttonColor,
+  n: buttonTextColor,
+  o: buttonOpacity,
+  p: String(fontSize),
+  q: mainBorderColor,
+  r: mainBorderVisible ? 1 : 0,
+  s: rounded ? 1 : 0,
+  t: messageSound ? 1 : 0,
+  v: showGroupName ? 1 : 0,
+  w: showOwnersMessage ? 1 : 0,
+  usricon: showUserIcons ? 1 : 0,
+  surl: 0,
+  allowpm: allowPrivateMessages ? 1 : 0,
+  ticker: ticker ? 1 : 0,
+
+  cnrs: String(cornerRadius),
+
+  showx: showCloseButton ? 1 : 0,
+  fwtickm: 1,
+};
+
+const config = {
+  handle: "connellweb",
+  arch: "js",
+  styles,
+};
+
+const embed = `
+<script
+  id="cid0020000444100794607"
+  data-cfasync="false"
+  async
+  src="//st.chatango.com/js/gz/emb.js"
+  style="width:${width}px;height:${height}px;"
+>${JSON.stringify(config)}</script>
+`;
+---
+
+<Fragment set:html={embed} />
